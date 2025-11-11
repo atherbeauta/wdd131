@@ -1,0 +1,44 @@
+/* temples-large.css - Styles for larger screens (Revised) */
+
+@media only screen and (min-width: 50rem) {
+    
+    /* --- Header & Navigation (Desktop) --- */
+    
+    #menu {
+        display: none;
+    }
+
+    /* Adjust header layout to center content */
+    header {
+        justify-content: space-between; 
+        max-width: 1200px; /* Optional: limit width */
+        margin: 0 auto;
+    }
+    
+    .navigation {
+        display: flex; 
+        flex-direction: row; 
+        width: auto;
+        position: static; 
+        background-color: transparent; 
+    }
+
+    .navigation a {
+        border-top: none;
+        padding: 0.5rem 1rem;
+    }
+    
+    /* --- CSS Grid (Desktop - 3 Columns) --- */
+    
+    .temple-grid {
+        /* Set explicit 3 columns */
+        grid-template-columns: 1fr 1fr 1fr; 
+        gap: 2rem;
+    }
+
+    figure {
+        /* Remove box-shadow for a flatter look, consistent with the image */
+        box-shadow: none; 
+        border: none;
+    }
+}

@@ -1,0 +1,152 @@
+/* temples.css - Mobile First Styles (Revised based on images) */
+
+/* --- General & Variables --- */
+:root {
+    /* Revised Colors based on screenshot (Purple/Violet Scheme) */
+    --primary-color: #512DA8; /* Deep Purple for header/footer */
+    --secondary-color: #FFFFFF; /* White */
+    --accent-color: #FFEB3B; /* Yellow for hover/accents */
+    --font-heading: 'Roboto', sans-serif; /* Using a clean font for demonstration */
+    --font-body: 'Roboto', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    color: #333;
+    background-color: var(--secondary-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Header & Navigation (Mobile) --- */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    font-family: var(--font-heading);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+/* --- Hamburger Button Styles --- */
+/* The button should be hidden in the code, but the icon is displayed via ::before */
+#menu {
+    font-size: 2rem;
+    color: white;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1; /* Ensures the icon is vertically centered */
+}
+
+#menu::before {
+    content: "☰"; /* Hamburger Icon */
+}
+
+/* Close icon 'X' when menu is open */
+#menu.open::before {
+    content: "X"; 
+}
+
+/* --- Navigation Menu (Flex) --- */
+.navigation {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 4.2rem; /* Adjusted based on header height */
+    left: 0;
+    background-color: #673AB7; /* Slightly lighter purple for the menu body */
+    z-index: 10;
+    /* Mobile First: Menu is hidden by default */
+    display: none; 
+}
+
+/* Show menu when 'open' class is toggled by JS */
+.navigation.open {
+    display: flex; 
+}
+
+.navigation a {
+    display: block;
+    color: white;
+    padding: 1rem;
+    text-decoration: none;
+    text-align: center;
+    border-top: 1px solid #7E57C2; /* Light border between links */
+}
+
+.navigation a:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* --- Main Layout (Mobile) --- */
+main {
+    max-width: 900px;
+    margin: 1rem auto;
+    padding: 0 1rem;
+}
+
+.main-title {
+    text-align: center;
+    color: var(--primary-color);
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    padding: 1rem 0;
+}
+
+/* --- CSS Grid (Mobile - 1 Column) --- */
+.temple-grid {
+    display: grid;
+    /* Mobile: Single column layout */
+    grid-template-columns: 1fr; 
+    gap: 1.5rem;
+}
+
+figure {
+    background-color: var(--secondary-color);
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+figure img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+figcaption {
+    padding-top: 0.5rem;
+    font-style: italic;
+    color: #555;
+}
+
+/* --- Footer Styles --- */
+footer {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+#lastModified {
+    margin-top: 0.5rem;
+    font-style: italic;
+    color: #bdbdbd;
+}

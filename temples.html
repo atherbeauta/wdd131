@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 131 – Temple Picture Album</title>
+    <meta name="description" content="A responsive temple picture album page using HTML, CSS Grid, and dynamic JavaScript menu.">
+    <meta name="author" content="Kazadi Athanase Muamba">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/temples.css">
+    <link rel="stylesheet" href="styles/temples-large.css"> 
+    
+    <script src="scripts/temples.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Temple Album</h1>
+        
+        <button id="menu" aria-label="Toggle Navigation Menu"></button>
+        
+        <nav class="navigation">
+            <a href="index.html">Home</a>
+            <a href="#">Old</a>
+            <a href="#">New</a>
+            <a href="#">Large</a>
+            <a href="#">Small</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="main-title">Beautiful Temples of the Church</h1>
+        
+        <div class="temple-grid">
+            
+            <figure>
+                <img src="images/temple1.webp" alt="Salt Lake City Temple, Utah" loading="lazy" width="300" height="200">
+                <figcaption>Salt Lake City Temple</figcaption>
+            </figure>
+            
+            <figure>
+                <img src="images/temple2.webp" alt="Rome Italy Temple" loading="lazy" width="300" height="200">
+                <figcaption>Rome Italy Temple</figcaption>
+            </figure>
+            
+            <figure>
+                <img src="images/temple3.webp" alt="Laie Hawaii Temple" loading="lazy" width="300" height="200">
+                <figcaption>Laie Hawaii Temple</figcaption>
+            </figure>
+            
+            <figure>
+                <img src="images/temple4.webp" alt="Manti Utah Temple" loading="lazy" width="300" height="200">
+                <figcaption>Manti Utah Temple</figcaption>
+            </figure>
+            
+            <figure>
+                <img src="images/temple5.webp" alt="Quetzaltenango Guatemala Temple" loading="lazy" width="300" height="200">
+                <figcaption>Quetzaltenango Temple</figcaption>
+            </figure>
+            
+            <figure>
+                <img src="images/temple6.webp" alt="Kinshasa DRC Temple" loading="lazy" width="300" height="200">
+                <figcaption>Kinshasa DRC Temple</figcaption>
+            </figure>
+            
+            <figure>
+                <img src="images/temple7.webp" alt="Accra Ghana Temple" loading="lazy" width="300" height="200">
+                <figcaption>Accra Ghana Temple</figcaption>
+            </figure>
+            
+            <figure>
+                <img src="images/temple8.webp" alt="Aba Nigeria Temple" loading="lazy" width="300" height="200">
+                <figcaption>Aba Nigeria Temple</figcaption>
+            </figure>
+            
+            <figure>
+                <img src="images/temple9.webp" alt="Cedar City Utah Temple" loading="lazy" width="300" height="200">
+                <figcaption>Cedar City Temple</figcaption>
+            </figure>
+            
+        </div>
+    </main>
+
+    <footer>
+        <p>
+            &copy;<span id="currentyear"></span> | Kazadi Athanase Muamba | DRC
+        </p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+</html>
