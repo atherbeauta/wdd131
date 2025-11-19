@@ -1,146 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lubumbashi, DRC - Copper Capital</title>
-    <!-- SEO & Best Practices -->
-    <meta name="description" content="Explore Lubumbashi, DRC: The economic capital of Haut-Katanga, known for its copper mining and subtropical climate. Features current weather and wind chill calculations.">
-    <meta name="author" content="Kazadi Athanase Muamba">
-    
-    <!-- Tailwind CSS CDN for styling (Criteria 1, 2, 3, 4) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Custom styles for Pseudo-Element Emoticon (Criterion 7) */
-        /* Hidden by default on mobile */
-        .page-title::after {
-            content: ""; 
-            display: none;
-        }
-
-        /* Show Emoticon only in wider view (desktop/tablet >= 768px) */
-        @media (min-width: 768px) {
-            .page-title::after {
-                content: " 🇨🇩"; /* DRC Flag Emoticon */
-                display: inline-block;
-                margin-left: 0.5rem;
-                font-size: 1.5rem;
-                vertical-align: middle;
-            }
-        }
-
-        /* Styling for the SVG weather icon (Criterion 6) */
-        /* Default size and color for the mobile view (small screen) */
-        .weather-icon-mobile {
-            width: 50px;
-            height: 50px;
-            fill: #10b981; /* Emerald-500 */
-        }
-        
-        /* Hide the mobile SVG icon in wider views */
-        @media (min-width: 768px) {
-            .weather-icon-mobile {
-                display: none;
-            }
-        }
-        
-        /* Ensure the body takes full height for proper footer placement (Criterion 3) */
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* Set a specific background color for the main section for contrast (Criterion 4) */
-        main {
-            background-color: #f7f7f7;
-        }
-    </style>
-</head>
-<body class="bg-gray-100 font-sans text-gray-800">
-
-    <header class="bg-emerald-600 text-white shadow-lg">
-        <div class="max-w-6xl mx-auto p-4 flex justify-between items-center">
-            <h1 class="text-3xl font-bold">Lubumbashi, DRC</h1>
-            <nav class="space-x-4 text-lg">
-                <a href="#" class="hover:text-emerald-200 transition">History</a>
-                <a href="#" class="hover:text-emerald-200 transition">Culture</a>
-                <a href="#" class="hover:text-emerald-200 transition">Economy</a>
-            </nav>
-        </div>
-    </header>
-
-    <main class="flex-grow max-w-6xl mx-auto p-4 md:p-8 w-full">
-        
-        <h2 class="text-4xl font-extrabold mb-6 page-title text-emerald-800">
-            Haut-Katanga's Economic Heart
-        </h2>
-
-        <!-- Hero Image Swap (Criterion 5 & 10) -->
-        <div class="rounded-xl overflow-hidden shadow-2xl mb-8">
-            <picture>
-                <!-- Source for desktop/wider view (>= 768px) -->
-                <source 
-                    srcset="https://placehold.co/960x300/059669/ffffff?text=LUBUMBASHI+WIDE+(960px).webp" 
-                    media="(min-width: 768px)" 
-                    type="image/webp">
-                <!-- Source for tablet view (>= 480px) -->
-                <source 
-                    srcset="https://placehold.co/600x400/047857/ffffff?text=LUBUMBASHI+MEDIUM+(600px).webp" 
-                    media="(min-width: 480px)" 
-                    type="image/webp">
-                <!-- Default <img> for mobile and fallback (must be webp) -->
-                <img 
-                    srcset="https://placehold.co/400x500/065f46/ffffff?text=LUBUMBASHI+MOBILE+(400px).webp" 
-                    alt="Cityscape of Lubumbashi, showing major buildings and vibrant city life." 
-                    class="w-full h-auto object-cover"
-                    loading="lazy">
-            </picture>
-        </div>
-
-        <!-- Weather and Facts Section (Criteria 6, 8) -->
-        <section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            
-            <div class="bg-white p-6 rounded-xl shadow-lg md:col-span-2 border-l-4 border-emerald-500">
-                <h3 class="text-2xl font-semibold text-gray-700 mb-4">The Copper Capital</h3>
-                <p class="mb-4 text-gray-600">Lubumbashi, formerly Élisabethville, is the second-largest city in the Democratic Republic of Congo and the mining capital of the country. It sits in the southeastern region of Haut-Katanga, near the border with Zambia.</p>
-                <p class="text-gray-600">The city is characterized by its important industrial activities, driven primarily by copper mining. It features a tropical climate with a long dry season (May–September) and a rainy season (October–April).</p>
-            </div>
-
-            <!-- Weather Card -->
-            <div class="bg-emerald-50 p-6 rounded-xl shadow-xl border border-emerald-200">
-                <h3 class="text-xl font-bold text-emerald-700 mb-4 flex items-center">
-                    Current Conditions
-                    <!-- SVG Weather Icon (Criterion 6) - Visible on Mobile Only -->
-                    <!-- Simple sun icon for a generic warm climate day -->
-                    <svg class="weather-icon-mobile ml-2 md:hidden" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm4-8a4 4 0 1 1-4-4 4 4 0 0 1 4 4z"/>
-                    </svg>
-                </h3>
-                
-                <!-- Use typical warm conditions for Lubumbashi's rainy/hot season (Wind Chill likely N/A) -->
-                <p class="text-lg mb-2">Temperature: <span id="temperature" data-temp-c="27">27°C</span></p>
-                <p class="text-lg mb-2">Wind Speed: <span id="wind-speed" data-speed-kph="5">5 km/h</span></p>
-
-                <!-- WindChill Output (Criterion 8) -->
-                <p class="text-xl font-extrabold mt-4 pt-3 border-t border-emerald-300 text-red-600">
-                    Wind Chill: <span id="windchill-output">N/A</span>
-                </p>
-            </div>
-        </section>
-
-        <!-- Dynamic Content Section -->
-        <section class="bg-white p-6 rounded-xl shadow-lg">
-            <h3 class="text-2xl font-semibold text-emerald-700 mb-4">Key Economic Activities</h3>
-            <ul class="list-disc list-inside space-y-2 ml-4 text-gray-600">
-                <li>Copper and Cobalt Mining (Largest sector)</li>
-                <li>University Education and Research (University of Lubumbashi)</li>
-                <li>Trade and Commerce with neighboring Zambia and South Africa</li>
-                <li>Agriculture and local food processing</li>
-            </ul>
-        </section>
-
-    </main>
+</main>
 
     <!-- Footer (Criterion 9) -->
     <footer class="bg-gray-800 text-gray-300 p-4 mt-auto text-center shadow-inner">
@@ -160,7 +18,7 @@
         const tempC = parseFloat(tempElement.getAttribute('data-temp-c'));
         const speedKPH = parseFloat(speedElement.getAttribute('data-speed-kph'));
 
-        // Constants for conversion (Wind Chill formula requires Celsius and km/h)
+        // Constants for conversion (Wind Chill formula requires Fahrenheit and MPH)
         const tempF = (tempC * 9/5) + 32;
         const speedMPH = speedKPH / 1.60934;
 
@@ -174,13 +32,14 @@
          */
         const calculateWindChill = (temperature, windSpeed) => 35.74 + (0.6215 * temperature) - (35.75 * Math.pow(windSpeed, 0.16)) + (0.4275 * temperature * Math.pow(windSpeed, 0.16));
 
-        // Wind Chill conditions (T <= 10°C AND V > 4.8 km/h) - Wind Chill applies
+        // Wind Chill viable calculation conditions (T <= 10°C AND V > 4.8 km/h)
         const tempConditionC = 10; 
         const speedConditionKPH = 4.8; 
 
         // CRITERION 8: The function is only called if conditions are met.
         if (tempC <= tempConditionC && speedKPH > speedConditionKPH) {
             
+            // Call the function if conditions are met
             const windChillF = calculateWindChill(tempF, speedMPH);
             
             // Convert Wind Chill result back to Celsius for user display
@@ -189,7 +48,7 @@
             windchillOutput.textContent = `${windChillC}°C`;
 
         } else {
-            // Display N/A if conditions are not met
+            // Display N/A if conditions are not met (This path is executed for T=27, V=5)
             windchillOutput.textContent = "N/A (Conditions not met)";
         }
 
