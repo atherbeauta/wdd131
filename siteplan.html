@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W05 Project Site Plan: ZeroDataComm</title>
+    <!--
+    WDD 131: Dynamic Web Fundamentals - Project Site Plan
+    Project Topic: ZeroDataComm (Zero-Data Communication Platform)
+    This single HTML file contains the complete planning document, styled according to the defined schema.
+    
+    *** CONGO (DRC) ADAPTATION ***
+    The "ZeroDataComm" concept is ideal for the Congolese market where data costs are high.
+    The mobile-first design and focus on cost savings are crucial for this audience.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Chosen Fonts: Montserrat (Headings) and Open Sans (Body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- DOCUMENT COLOR SCHEME (Criteria 7 & 8) --- */
+        :root {
+            /* Primary Color: Used for background areas (Light Cool Gray) */
+            --color-primary-bg: #F0F4F8; 
+            /* Secondary Color: Used for text and main elements (Dark Charcoal Blue) */
+            --color-secondary-text: #2C3E50; 
+            /* Accent Color: Used for buttons, CTAs, and highlights (Electric Blue) */
+            --color-accent: #3498DB;
+            /* Sub-Accent/Contrast: Used for secondary text or specific section backgrounds (Pure White) */
+            --color-white: #FFFFFF;
+        }
+
+        /* --- DOCUMENT TYPOGRAPHY (Criteria 9 & 10) --- */
+        body {
+            font-family: 'Open Sans', sans-serif; /* Body text font */
+            line-height: 1.6;
+            color: var(--color-secondary-text);
+            background-color: var(--color-primary-bg); /* Apply Primary Background Color */
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif; /* Heading font */
+            color: var(--color-secondary-text);
+            margin-top: 1.5em;
+        }
+        
+        /* Apply accent color to important headings */
+        h2 {
+            border-bottom: 3px solid var(--color-accent);
+            padding-bottom: 5px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px 30px;
+            background-color: var(--color-white); /* Apply White for container background */
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .color-demo {
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 5px;
+            font-weight: 600;
+            color: var(--color-white);
+        }
+
+        .demo-primary { 
+            background-color: var(--color-primary-bg); 
+            color: var(--color-secondary-text);
+            border: 1px dashed var(--color-secondary-text);
+        }
+        .demo-secondary { background-color: var(--color-secondary-text); }
+        .demo-accent { background-color: var(--color-accent); }
+        
+        .font-demo {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-left: 5px solid var(--color-accent);
+            background-color: #ECF0F1; /* Light contrast */
+            border-radius: 4px;
+        }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; font-size: 1.5em; font-weight: 700; color: var(--color-accent); }
+        .font-open-sans { font-family: 'Open Sans', sans-serif; font-size: 1em; color: var(--color-secondary-text); }
+        
+        /* Wireframes Styles */
+        .wireframe-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            justify-content: space-around;
+        }
+
+        .wireframe {
+            border: 2px dashed var(--color-accent);
+            padding: 20px;
+            flex-grow: 1;
+            min-width: 300px;
+            background-color: var(--color-primary-bg);
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .mobile { width: 320px; }
+        .desktop { min-width: 600px; flex-basis: 0; }
+
+        .header-box { background-color: #A9CCE3; height: 60px; line-height: 60px; margin-bottom: 15px; border-radius: 4px; color: var(--color-secondary-text); font-weight: bold;}
+        .main-content-box { background-color: #D6EAF8; min-height: 200px; margin-bottom: 15px; padding: 10px; border-radius: 4px;}
+        .footer-box { background-color: #A9CCE3; height: 40px; line-height: 40px; border-radius: 4px; color: var(--color-secondary-text); font-weight: bold;}
+
+        /* Specific Wireframe adjustments for layout */
+        .desktop .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 15px;
+        }
+        .cta-button {
+            background-color: var(--color-accent);
+            color: var(--color-white);
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>W05 Project Site Plan: ZeroDataComm</h1>
+            <p>This plan outlines the design and content strategy for ZeroDataComm, a promotional website for a zero-data communication platform.</p>
+        </header>
+
+        <section id="site-name">
+            <h2>1. Site Name and Branding</h2>
+            
+            <h3>Site Name: ZeroDataComm</h3>
+            <!-- Logo Placeholder/Identifier -->
+            <div style="font-size: 2em; font-weight: bold; color: var(--color-accent); margin-bottom: 15px;">
+                ZeroDataComm <span style="font-size: 0.5em; vertical-align: super; color: #E74C3C;">™</span>
+            </div>
+            
+            <p><strong>Reason for Name:</strong> The name is highly descriptive, clearly communicating the primary value proposition: communication ("Comm") that uses zero cellular data ("ZeroData"). It is short, modern, and suitable for a tech startup.</p>
+            
+            <p><strong>Optional Domain:</strong> <a href="http://zerodatacom.app" style="color: var(--color-accent);">zerodatacom.app</a></p>
+        </section>
+
+        <section id="site-purpose">
+            <h2>2. Site Purpose</h2>
+            
+            <p>The main goal of the site is to serve as the primary marketing and informational resource for the ZeroDataComm application. Key information and services provided:</p>
+            
+            <ul>
+                <li>**Value Proposition:** Clearly explain *how* the app works without data and emphasize cost savings.</li>
+                <li>**Feature Showcase:** Detail the app's main functionalities (secure messaging, community forums).</li>
+                <li>**Dynamic Pricing Tool:** Provide a dynamic calculator allowing users to determine the annual subscription cost based on their needs. (The basic JavaScript requirement.)</li>
+                <li>**Access/Download:** Direct users to purchase an access code or download the mobile application.</li>
+            </ul>
+        </section>
+
+        <section id="scenarios">
+            <h2>3. Scenarios (Target Audience Questions)</h2>
+            
+            <p>The target audience includes individuals in emerging markets (like the DRC), students, and budget-conscious families.</p>
+            
+            <ol>
+                <li>"How much will a year-long family plan cost me, and how do I calculate the total price?" (Addresses budget-conscious users seeking the dynamic calculator feature.)</li>
+                <li>"Is this app secure, and can I use it for more than just text messages?" (Addresses users concerned about privacy and the full feature set.)</li>
+            </ol>
+        </section>
+
+        <section id="color-schema">
+            <h2>4. Color Scheme</h2>
+            
+            <p>The scheme uses reliable, cool colors, typical of tech and financial services, ensuring excellent contrast and a modern, clean look. (Used throughout this document)</p>
+            
+            <ul>
+                <li>
+                    <div class="color-demo demo-accent">Accent Color (Electric Blue - #3498DB)</div>
+                    <p>Used for: **Call-to-Action (CTA) buttons**, key interactive elements, links, and borders to draw attention. Represents innovation and trust.</p>
+                </li>
+                <li>
+                    <div class="color-demo demo-secondary">Secondary/Text Color (Dark Charcoal Blue - #2C3E50)</div>
+                    <p>Used for: **All headings (H1, H2)** and main body text. Provides high contrast against the light background.</p>
+                </li>
+                <li>
+                    <div class="color-demo demo-primary">Primary Background (Light Cool Gray - #F0F4F8)</div>
+                    <p>Used for: **General page background** to give a soft, technological feel without being stark white.</p>
+                </li>
+                <li>
+                    <div class="color-demo" style="background-color: var(--color-white); color: var(--color-secondary-text);">Sub-Accent Color (Pure White - #FFFFFF)</div>
+                    <p>Used for: **Backgrounds of main content cards** (like this container) and areas displaying important data (e.g., Pricing Calculator result).</p>
+                </li>
+            </ul>
+        </section>
+
+        <section id="typography">
+            <h2>5. Typography</h2>
+            
+            <p>A sans-serif combination is chosen for maximum readability and a professional, contemporary look, consistent with a technology product.</p>
+            
+            <ul>
+                <li>
+                    <strong>Montserrat (Sans-serif):</strong> Used for **Headings (H1, H2, H3)**. This font is geometric and bold, perfect for modern branding and making main points stand out.
+                    <div class="font-demo font-montserrat">Example of Montserrat (Heading Font)</div>
+                </li>
+                <li>
+                    <strong>Open Sans (Sans-serif):</strong> Used for **Body Text, Paragraphs, and Navigation**. A highly readable and versatile font, optimized for web display.
+                    <div class="font-demo font-open-sans">Example of Open Sans (Body Text)</div>
+                </li>
+            </ul>
+        </section>
+        
+        <section id="wireframes">
+            <h2>6. Wireframes (Homepage Layout)</h2>
+            
+            <p>The layout is designed mobile-first, focusing on the value proposition and immediate Call-to-Action.</p>
+
+            <div class="wireframe-container">
+                <!-- Mobile Wireframe (Crucial for the Congolese market) -->
+                <div class="wireframe mobile">
+                    <h3>Mobile View (Small Format)</h3>
+                    <div class="header-box">Logo | Hamburger Menu (R)</div>
+                    <div class="main-content-box" style="min-height: 180px;">
+                        **Hero Section (Full Width)**
+                        <p>Main Headline: Zero-Data Communication.</p>
+                        <p>Short Sub-headline.</p>
+                        <div class="cta-button">Get Access Code</div>
+                    </div>
+                    <div class="main-content-box">
+                        Section 1: Savings Comparison Chart (Stacked)
+                    </div>
+                    <div class="main-content-box">
+                        Section 2: Key Features (3-4 points stacked vertically)
+                    </div>
+                    <div class="main-content-box" style="min-height: 100px;">
+                        Secondary CTA / Download Links
+                    </div>
+                    <div class="footer-box">Copyright | Social Media</div>
+                </div>
+
+                <!-- Desktop Wireframe -->
+                <div class="wireframe desktop">
+                    <h3>Large View (Desktop/Wide Screen)</h3>
+                    <div class="header-box">Logo | Navigation Links (L) | CTA Button (R)</div>
+                    <div class="main-content-box" style="min-height: 250px;">
+                        **Hero Section (Wide Banner)**
+                        <div style="float: right; width: 40%; height: 100%; background-color: #A9CCE3; margin-top: -10px;">
+                            App Mockup Image
+                        </div>
+                        <div style="float: left; width: 55%;">
+                            <h1>Large Headline and Value Proposition</h1>
+                            <p>Detailed Pitch Paragraph.</p>
+                            <div class="cta-button">View Pricing</div>
+                        </div>
+                    </div>
+                    <div class="desktop main-grid">
+                        <div class="main-content-box" style="min-height: 150px;">
+                            Main Content Area: Savings and Impact Metrics (Data visualization)
+                        </div>
+                        <div class="main-content-box" style="background-color: #D5DBDB; min-height: 150px;">
+                            Highlighted Feature: "Secure Messaging"
+                        </div>
+                    </div>
+                    <div class="main-content-box" style="min-height: 100px;">
+                        Feature Preview in Three Columns (Icons and Text)
+                    </div>
+                    <div class="footer-box">Footer: Quick Links, Legal, Contact</div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
