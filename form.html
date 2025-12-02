@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Review Form</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <script defer src="scripts/getdates.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Product Review</h1>
+    </header>
+
+    <main>
+        <form method="get" action="place.html">
+            <!-- Product Name -->
+            <label for="product">Product Name</label>
+            <select id="product" name="product" required>
+                <option value="" disabled selected>Select a Product ...</option>
+            </select>
+
+            <!-- Rating -->
+            <fieldset>
+                <legend>Overall Rating *</legend>
+                <div class="stars">
+                    <label><input type="radio" name="rating" value="1" required> ☆</label>
+                    <label><input type="radio" name="rating" value="2"> ☆☆</label>
+                    <label><input type="radio" name="rating" value="3"> ☆☆☆</label>
+                    <label><input type="radio" name="rating" value="4"> ☆☆☆☆</label>
+                    <label><input type="radio" name="rating" value="5"> ☆☆☆☆☆</label>
+                </div>
+            </fieldset>
+
+            <!-- Installation Date -->
+            <label for="install">Date of Installation *</label>
+            <input type="date" id="install" name="install" required>
+
+            <!-- Useful Features -->
+            <fieldset>
+                <legend>Useful Features (Check all that apply)</legend>
+                
+                <label><input type="checkbox" name="features" value="Durability"> Durability</label>
+                <label><input type="checkbox" name="features" value="Easy Installation"> Easy Installation</label>
+                <label><input type="checkbox" name="features" value="High Performance"> High Performance</label>
+                <label><input type="checkbox" name="features" value="Eco Friendly"> Eco Friendly</label>
+            </fieldset>
+
+            <!-- Written Review -->
+            <label for="review">Written Review (optional)</label>
+            <textarea id="review" name="review" rows="4"></textarea>
+
+            <!-- Username -->
+            <label for="user">Your Name (optional)</label>
+            <input type="text" id="user" name="user">
+
+            <!-- Submit -->
+            <input type="submit" value="Submit Review">
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; BYU-Idaho | WDD131</p>
+    </footer>
+</body>
+</html>
