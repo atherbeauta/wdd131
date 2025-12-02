@@ -1,4 +1,80 @@
-</main>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 131: The Place</title>
+    <!-- Load Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles to ensure full page layout and Inter font */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        main {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="bg-blue-700 text-white p-4 shadow-xl">
+        <div class="container mx-auto">
+            <h1 class="text-3xl font-extrabold">Place Name: Lubumbashi, DRC</h1>
+            <p class="text-blue-200">Copper Capital and Cultural Center</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <!-- Hero Image and Information -->
+        <section class="bg-white p-6 rounded-xl shadow-lg mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-blue-800">Welcome to Lubumbashi</h2>
+            <p class="text-gray-600 mb-4">
+                Lubumbashi is the second-largest city in the Democratic Republic of the Congo. It serves as the mining capital of the country, acting as a vital hub for transportation and commerce.
+            </p>
+            <img src="https://placehold.co/1000x300/3498DB/FFFFFF?text=Lubumbashi+City+Placeholder+Image" 
+                 alt="Placeholder image of Lubumbashi city landscape" 
+                 class="w-full rounded-lg shadow-md object-cover">
+        </section>
+
+        <!-- Weather Summary Section -->
+        <section class="bg-white p-6 rounded-xl shadow-lg">
+            <h2 class="text-2xl font-bold border-b pb-2 mb-4 text-blue-800">Current Weather Conditions</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <!-- Data is set here using data-attributes for JS calculation -->
+                
+                <div class="p-4 bg-gray-100 rounded-lg shadow-inner border-t-4 border-blue-500">
+                    <p class="text-sm font-medium text-gray-500">Air Temperature</p>
+                    <!-- Element ID required for JavaScript (Mock Data: T=27°C) -->
+                    <p id="temperature" data-temp-c="27" class="text-4xl font-extrabold text-blue-600">27°C</p>
+                </div>
+
+                <div class="p-4 bg-gray-100 rounded-lg shadow-inner border-t-4 border-blue-500">
+                    <p class="text-sm font-medium text-gray-500">Wind Speed</p>
+                    <!-- Element ID required for JavaScript (Mock Data: V=5 kph) -->
+                    <p id="wind-speed" data-speed-kph="5" class="text-4xl font-extrabold text-blue-600">5 kph</p>
+                </div>
+
+                <div class="p-4 bg-gray-100 rounded-lg shadow-inner border-t-4 border-red-500">
+                    <p class="text-sm font-medium text-gray-500">Wind Chill Factor</p>
+                    <!-- Output Element ID required for JavaScript -->
+                    <p id="windchill-output" class="text-4xl font-extrabold text-red-600">N/A</p>
+                </div>
+            </div>
+            
+            <p class="mt-4 text-sm text-gray-600 italic">
+                The Wind Chill is calculated only when the air temperature is 10°C (50°F) or below AND the wind speed is greater than 4.8 kph (3 mph).
+            </p>
+        </section>
+
+    </main>
 
     <!-- Footer (Criterion 9) -->
     <footer class="bg-gray-800 text-gray-300 p-4 mt-auto text-center shadow-inner">
@@ -9,51 +85,56 @@
     </footer>
 
     <script>
-        // Data for Wind Chill calculation (Criterion 8)
+        // --- JAVASCRIPT LOGIC (Criterion 8 & 9) ---
+
+        // 1. Get DOM elements for data and output
         const tempElement = document.getElementById('temperature');
         const speedElement = document.getElementById('wind-speed');
         const windchillOutput = document.getElementById('windchill-output');
 
-        // Extracting data attributes for calculations
-        const tempC = parseFloat(tempElement.getAttribute('data-temp-c'));
-        const speedKPH = parseFloat(speedElement.getAttribute('data-speed-kph'));
-
-        // Constants for conversion (Wind Chill formula requires Fahrenheit and MPH)
-        const tempF = (tempC * 9/5) + 32;
-        const speedMPH = speedKPH / 1.60934;
-
-        /**
-         * Calculates the Wind Chill Factor in Fahrenheit.
-         * Formula requires temperature in Fahrenheit and speed in MPH.
-         * @param {number} temperature - Air temperature in Fahrenheit.
-         * @param {number} windSpeed - Wind speed in Miles Per Hour.
-         * @returns {number} - The calculated Wind Chill in Fahrenheit.
-         * CRITERION 8: The function must be one line of code.
-         */
-        const calculateWindChill = (temperature, windSpeed) => 35.74 + (0.6215 * temperature) - (35.75 * Math.pow(windSpeed, 0.16)) + (0.4275 * temperature * Math.pow(windSpeed, 0.16));
-
-        // Wind Chill viable calculation conditions (T <= 10°C AND V > 4.8 km/h)
-        const tempConditionC = 10; 
-        const speedConditionKPH = 4.8; 
-
-        // CRITERION 8: The function is only called if conditions are met.
-        if (tempC <= tempConditionC && speedKPH > speedConditionKPH) {
+        // Check if all necessary elements exist before proceeding
+        if (tempElement && speedElement && windchillOutput) {
             
-            // Call the function if conditions are met
-            const windChillF = calculateWindChill(tempF, speedMPH);
-            
-            // Convert Wind Chill result back to Celsius for user display
-            const windChillC = ((windChillF - 32) * 5/9).toFixed(1);
+            // 2. Extract and convert data attributes
+            const tempC = parseFloat(tempElement.getAttribute('data-temp-c'));
+            const speedKPH = parseFloat(speedElement.getAttribute('data-speed-kph'));
 
-            windchillOutput.textContent = `${windChillC}°C`;
+            // Constants for conversion (Wind Chill formula requires Fahrenheit and MPH)
+            const tempF = (tempC * 9/5) + 32;
+            const speedMPH = speedKPH / 1.60934;
 
-        } else {
-            // Display N/A if conditions are not met (This path is executed for T=27, V=5)
-            windchillOutput.textContent = "N/A (Conditions not met)";
+            /**
+             * Calculates the Wind Chill Factor in Fahrenheit.
+             * Formula requires temperature in Fahrenheit and speed in MPH.
+             * CRITERION 8: The function must be one line of code.
+             */
+            const calculateWindChill = (temperature, windSpeed) => 35.74 + (0.6215 * temperature) - (35.75 * Math.pow(windSpeed, 0.16)) + (0.4275 * temperature * Math.pow(windSpeed, 0.16));
+
+            // 3. Define conditions for calculation (T <= 10°C AND V > 4.8 km/h)
+            const tempConditionC = 10; 
+            const speedConditionKPH = 4.8; 
+
+            // 4. CRITERION 8: The function is only called if conditions are met.
+            if (tempC <= tempConditionC && speedKPH > speedConditionKPH) {
+                
+                // Call the function if conditions are met
+                const windChillF = calculateWindChill(tempF, speedMPH);
+                
+                // Convert Wind Chill result back to Celsius for user display (one decimal place)
+                const windChillC = ((windChillF - 32) * 5/9).toFixed(1);
+
+                windchillOutput.textContent = `${windChillC}°C`;
+
+            } else {
+                // Display N/A if conditions are not met
+                windchillOutput.textContent = "N/A";
+            }
         }
 
-        // Footer JavaScript (Criterion 9)
+        // --- Footer JavaScript (Criterion 9) ---
+        // Sets the current year dynamically
         document.getElementById("currentyear").textContent = new Date().getFullYear();
+        // Sets the last modified date
         document.getElementById("lastModified").textContent = "Last Modified: " + document.lastModified;
 
     </script>
