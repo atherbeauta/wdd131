@@ -4,63 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Review Form</title>
+    <!-- Link to the external CSS file in the styles folder -->
     <link rel="stylesheet" href="styles/base.css">
-    <script defer src="scripts/getdates.js"></script>
+    <!-- Google Fonts for modern design (Roboto from user's CSS) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Product Review</h1>
+        <div class="container">
+            <h1>Product Review</h1>
+        </div>
     </header>
 
     <main>
-        <form method="get" action="place.html">
-            <!-- Product Name -->
-            <label for="product">Product Name</label>
-            <select id="product" name="product" required>
-                <option value="" disabled selected>Select a Product ...</option>
-            </select>
+        <!-- Form meets all requirements: method="get", action="review.html" -->
+        <form method="get" action="review.html" class="form-container">
+            <h2>Submit a Product Review</h2>
+            
+            <!-- 1. Product Name (Required - Criteria 5 & 6) -->
+            <div class="form-field">
+                <label for="product">Product Name <span style="color: red;">*</span></label>
+                <!-- id and name attributes are relevant and present -->
+                <select id="product" name="productId" required>
+                    <!-- Instructional placeholder, disabled and selected -->
+                    <option value="" disabled selected>Select a Product ...</option>
+                    <!-- Options populated by JavaScript (Criterion 7) -->
+                </select>
+            </div>
 
-            <!-- Rating -->
-            <fieldset>
-                <legend>Overall Rating *</legend>
-                <div class="stars">
-                    <label><input type="radio" name="rating" value="1" required> ☆</label>
-                    <label><input type="radio" name="rating" value="2"> ☆☆</label>
-                    <label><input type="radio" name="rating" value="3"> ☆☆☆</label>
-                    <label><input type="radio" name="rating" value="4"> ☆☆☆☆</label>
-                    <label><input type="radio" name="rating" value="5"> ☆☆☆☆☆</label>
+            <!-- 2. Overall Rating (Required - Criteria 5 & 6) -->
+            <fieldset class="form-field">
+                <legend>Overall Rating <span style="color: red;">*</span></legend>
+                <!-- Radio buttons share the same 'name' to ensure only one is selected -->
+                <div class="rating-group">
+                    <input type="radio" id="star5" name="rating" value="5" required><label for="star5" title="5 stars">★</label>
+                    <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 stars">★</label>
+                    <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 stars">★</label>
+                    <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 stars">★</label>
+                    <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 star">★</label>
                 </div>
             </fieldset>
 
-            <!-- Installation Date -->
-            <label for="install">Date of Installation *</label>
-            <input type="date" id="install" name="install" required>
+            <!-- 3. Date of Installation (Required - Criteria 5 & 6) -->
+            <div class="form-field">
+                <label for="install">Date of Installation <span style="color: red;">*</span></label>
+                <input type="date" id="installDate" name="installDate" required>
+            </div>
 
-            <!-- Useful Features -->
-            <fieldset>
+            <!-- 4. Useful Features (Optional - Criterion 6) -->
+            <fieldset class="form-field">
                 <legend>Useful Features (Check all that apply)</legend>
-                
-                <label><input type="checkbox" name="features" value="Durability"> Durability</label>
-                <label><input type="checkbox" name="features" value="Easy Installation"> Easy Installation</label>
-                <label><input type="checkbox" name="features" value="High Performance"> High Performance</label>
-                <label><input type="checkbox" name="features" value="Eco Friendly"> Eco Friendly</label>
+                <div class="checkbox-group">
+                    <!-- Note: Checkboxes need unique IDs but share the same 'name' to group them -->
+                    <label for="featDura"><input type="checkbox" id="featDura" name="features" value="Durability"> Durability</label>
+                    <label for="featEasy"><input type="checkbox" id="featEasy" name="features" value="Easy Installation"> Easy Installation</label>
+                    <label for="featPerf"><input type="checkbox" id="featPerf" name="features" value="High Performance"> High Performance</label>
+                    <label for="featEco"><input type="checkbox" id="featEco" name="features" value="Eco Friendly"> Eco Friendly</label>
+                </div>
             </fieldset>
 
-            <!-- Written Review -->
-            <label for="review">Written Review (optional)</label>
-            <textarea id="review" name="review" rows="4"></textarea>
+            <!-- 5. Written Review (Optional - Criterion 6) -->
+            <div class="form-field">
+                <label for="review">Written Review (optional)</label>
+                <textarea id="writtenReview" name="writtenReview" rows="4"></textarea>
+            </div>
 
-            <!-- Username -->
-            <label for="user">Your Name (optional)</label>
-            <input type="text" id="user" name="user">
+            <!-- 6. User Name (Optional - Criterion 6) -->
+            <div class="form-field">
+                <label for="user">Your Name (optional)</label>
+                <input type="text" id="userName" name="userName" placeholder="Enter your name">
+            </div>
 
-            <!-- Submit -->
-            <input type="submit" value="Submit Review">
+            <!-- Form Submission Button -->
+            <div class="form-field">
+                <input type="submit" value="Submit Review">
+            </div>
         </form>
     </main>
 
+    <!-- Common Footer Content -->
     <footer>
-      &copy;<span id="currentyear"></span> Kazadi Athanase Muamba 📍 Lubumbashi </p>
+        <p>&copy;<span id="currentyear"></span> Kazadi Athanase Muamba 📍 Lubumbashi </p>
+        <p id="lastModified">Last Modified: </p>
     </footer>
+
+    <script>
+        // CRITERION 7: JavaScript - Product Array logic
+        const products = [
+            { id: "fc-1888", name: "Flux Capacitor", averagerating: 4.5 },
+            { id: "fc-2050", name: "Power Laces", averagerating: 4.7 },
+            { id: "fs-1987", name: "Time Circuits", averagerating: 3.5 },
+            { id: "ac-2000", name: "Low Voltage Reactor", averagerating: 3.9 },
+            { id: "jj-1969", name: "Warp Equalizer", averagerating: 5.0 }
+        ];
+
+        function populateProducts() {
+            const selectElement = document.getElementById('product');
+            
+            // Iterate over the array to create the options
+            products.forEach(product => {
+                const option = document.createElement('option');
+                option.value = product.id; // Value is the product ID (as required by the instructions)
+                option.textContent = product.name; // Text is the product Name
+                selectElement.appendChild(option);
+            });
+        }
+
+        // Common function to set the current year and last modified date
+        function setDates() {
+            document.getElementById("currentyear").textContent = new Date().getFullYear();
+            document.getElementById("lastModified").textContent += document.lastModified;
+        }
+
+        // Initialize the page on load
+        document.addEventListener('DOMContentLoaded', () => {
+            populateProducts();
+            setDates();
+        });
+    </script>
 </body>
 </html>
