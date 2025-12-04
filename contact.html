@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactez-nous & Avis - Voyages Évasion</title>
+    <meta name="description" content="Formulaire de contact et section pour lire les avis clients et voir le compteur de révisions.">
+    <link rel="stylesheet" href="styles/base.css">
+    <script src="scripts/main.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Voyages Évasion</h1>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">&#9776;</button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="produits.html">Destinations</a></li>
+                <li><a href="contact.html" class="active">Contact & Avis</a></li>
+                <li><a href="references.html">Références</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="contact-form-section">
+            <h2>Laissez-nous un Avis</h2>
+            <p>Partagez votre expérience de voyage avec Voyages Évasion. Votre opinion compte !</p>
+
+            <!-- Critère 8: Formulaire HTML -->
+            <form id="review-form">
+                <div>
+                    <label for="name">Votre Nom :</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div>
+                    <label for="destination">Destination Visitée :</label>
+                    <select id="destination" name="destination" required>
+                        <!-- Les options seront remplies dynamiquement par JS (Critère 10 & 13) -->
+                        <option value="">Sélectionnez une destination</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="rating">Note (sur 5) :</label>
+                    <input type="number" id="rating" name="rating" min="1" max="5" required>
+                </div>
+
+                <div>
+                    <label for="review-text">Votre Avis (min. 50 caractères) :</label>
+                    <textarea id="review-text" name="review-text" rows="4" required></textarea>
+                </div>
+                
+                <div class="error-message" id="form-message"></div>
+
+                <button type="submit">Soumettre l'Avis</button>
+            </form>
+        </section>
+
+        <section id="reviews-section">
+            <h2>Avis Clients Récentes</h2>
+            <!-- Critère 15: localStorage | Critère 10: DOM Interaction -->
+            <div id="review-count-container">
+                Nombre total d'avis soumis (localStorage) : <span id="review-count">0</span>
+            </div>
+
+            <!-- Liste des avis stockés/préexistants -->
+            <ul class="review-list" id="customer-reviews-list">
+                <!-- Les avis seront insérés ici par JS -->
+                <li>Aucun avis à afficher pour le moment.</li>
+            </ul>
+        </section>
+        
+        <!-- Affichage dynamique de l'année courante (Critère 10: DOM interaction) -->
+        <p id="current-year-display" style="text-align: center; font-size: 0.9em; margin-top: 1rem;"></p>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="copyright-year"></span> Voyages Évasion. Tous droits réservés.</p>
+        <p><a href="references.html">Références et Citations</a></p>
+    </footer>
+</body>
+</html>
