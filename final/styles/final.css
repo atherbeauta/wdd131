@@ -1,0 +1,28 @@
+/*
+ * WDD 131 Final Project - Dedicated Styles
+ * This file contains minimal styles, as most design is handled by Tailwind CSS classes 
+ * in the HTML files. This separation prevents conflicts with older assignments that 
+ * may be using a different base.css file.
+ */
+
+/* Set up the Inter font as the primary font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    /* Ensure smooth scrolling for better UX */
+    scroll-behavior: smooth;
+    color: #1f2937; /* Default dark gray text */
+    background-color: #f9fafb; /* Very light background */
+}
+
+/* Base link styling */
+a {
+    transition: color 0.3s ease;
+}
+
+/* Ensure images below the fold are styled with max-width and height auto */
+img {
+    max-width: 100%;
+    height: auto;
+}
